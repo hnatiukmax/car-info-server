@@ -1,0 +1,1 @@
+web:  ./build/install/car-info/bin/car-info
