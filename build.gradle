@@ -36,9 +36,11 @@ dependencies {
     implementation appDependencies.logback
 
     /* Network */
+    implementation appDependencies.okHttpLogging
     implementation appDependencies.retrofit2
     implementation appDependencies.retrofit2GsonConverter
     implementation appDependencies.retrofitMoshiConverter
+
     implementation appDependencies.moshiAdapters
     kapt appDependencies.moshiKotlinCodegen
 }

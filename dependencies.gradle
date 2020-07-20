@@ -18,9 +18,11 @@ ext {
     logback = "ch.qos.logback:logback-classic"
 
     /* Network */
+    okHttpLogging = 'com.squareup.okhttp3:logging-interceptor'
     retrofit2 = 'com.squareup.retrofit2:retrofit'
     retrofit2GsonConverter = 'com.squareup.retrofit2:converter-gson'
     retrofitMoshiConverter = 'com.squareup.retrofit2:converter-moshi'
+
     moshiKotlinCodegen = 'com.squareup.moshi:moshi-kotlin-codegen'
     moshiAdapters = 'com.squareup.moshi:moshi-adapters'
 
@@ -35,8 +37,10 @@ ext {
     logbackVersion = '1.2.1'
 
     /* Network */
-    retrofit2Version = '2.9.0'
+    okHttpLoggingVersion = '3.8.1'
+    retrofit2Version = '2.7.0'
     retrofitMoshiConverterVersion = retrofit2Version
+
     moshiKotlinCodegenVersion = '1.8.0'
     moshiAdaptersVersion = '1.8.0'
 
@@ -47,9 +51,11 @@ ext {
             ktorTest              : "${ktorTest}:${ktorVersion}",
             logback               : "${logback}:${logbackVersion}",
 
+            okHttpLogging         : "${okHttpLogging}:${okHttpLoggingVersion}",
             retrofit2             : "${retrofit2}:${retrofit2Version}",
             retrofit2GsonConverter: "${retrofit2GsonConverter}:${retrofit2Version}",
             retrofitMoshiConverter: "${retrofitMoshiConverter}:${retrofitMoshiConverterVersion}",
+
             moshiKotlinCodegen    : "${moshiKotlinCodegen}:${moshiKotlinCodegenVersion}",
             moshiAdapters         : "${moshiAdapters}:${moshiAdaptersVersion}"
     ]
