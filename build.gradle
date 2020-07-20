@@ -1,15 +1,19 @@
 buildscript {
+    ext.kotlinVersion = '1.3.61'
+
     repositories {
         jcenter()
     }
-    
+
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
+apply from: 'dependencies.gradle'
 apply plugin: 'kotlin'
 apply plugin: 'application'
+apply plugin: 'kotlin-kapt'
 
 group 'com.sectumsempra'
 version '0.0.1'
@@ -22,16 +26,21 @@ sourceSets {
     test.resources.srcDirs = ['testresources']
 }
 
-repositories {
-    mavenLocal()
-    jcenter()
-}
-
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation "io.ktor:ktor-server-netty:$ktor_version"
-    implementation "ch.qos.logback:logback-classic:$logback_version"
-    testImplementation "io.ktor:ktor-server-tests:$ktor_version"
+    def appDependencies = rootProject.ext.appDependencies
+
+    /* Core */
+    implementation appDependencies.kotlinStdlib
+    implementation appDependencies.ktorNetty
+    implementation appDependencies.ktorTest
+    implementation appDependencies.logback
+
+    /* Network */
+    implementation appDependencies.retrofit2
+    implementation appDependencies.retrofit2GsonConverter
+    implementation appDependencies.retrofitMoshiConverter
+    implementation appDependencies.moshiAdapters
+    kapt appDependencies.moshiKotlinCodegen
 }
 
 task stage(dependsOn: ["installDist"])
