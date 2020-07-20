@@ -1,3 +1,3 @@
 package com.sectumsempra.server
 
-internal fun isTestingMode() = System.getenv(IS_TESTING_MODE)?.toBoolean() ?: false
+internal fun isTestingMode() = IS_TESTING_MODE.fromEnvOrNull()?.toBoolean() ?: false
