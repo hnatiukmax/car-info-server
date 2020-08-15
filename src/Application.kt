@@ -6,6 +6,7 @@ import com.sectumsempra.api.asErrorResponse
 import com.sectumsempra.api.routing.authentication.emailAuthentication
 import com.sectumsempra.api.routing.authentication.socialAuthentication
 import com.sectumsempra.api.routing.carInfo
+import com.sectumsempra.api.routing.refresh
 import com.sectumsempra.auth.JwtService
 import com.sectumsempra.auth.password.PasswordHashImpl
 import com.sectumsempra.data.repositories.AuthRepository
@@ -71,6 +72,7 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
+        refresh()
         emailAuthentication(authRepository, jwtService, passwordHash)
         socialAuthentication(authRepository, jwtService, passwordHash)
         carInfo(carInfoRepository)
