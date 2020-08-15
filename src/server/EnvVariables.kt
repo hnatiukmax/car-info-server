@@ -1,11 +1,12 @@
 package com.sectumsempra.server
 
-import java.lang.IllegalArgumentException
-
 internal const val DATABASE_GAI_URL = "DATABASE_GAI_URL"
 internal const val IS_TESTING_MODE = "IS_TESTING_MODE"
+internal const val JDBC_DATABASE_URl = "JDBC_DATABASE_URl"
+internal const val JWT_KEY = "JWT_KEY"
+internal const val SECRET_KEY = "SECRET_KEY"
 
 internal fun String.fromEnv() = System.getenv(this)
-    ?: throw IllegalArgumentException("$this env is missed")
+    ?: throw IllegalArgumentException("$this environment variable is missed")
 
 internal fun String.fromEnvOrNull() = System.getenv(this)
