@@ -2,7 +2,7 @@ package com.sectumsempra.data.storage.database
 
 import com.sectumsempra.data.storage.entity.CarsInfo
 import com.sectumsempra.data.storage.entity.Users
-import com.sectumsempra.server.JDBC_DATABASE_URl
+import com.sectumsempra.server.DATABASE_URl
 import com.sectumsempra.server.fromEnv
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
@@ -34,7 +34,7 @@ object DatabaseFactory {
 
         config.apply {
             driverClassName = DRIVER_CLASS_NAME
-            jdbcUrl = JDBC_DATABASE_URl.fromEnv()
+            jdbcUrl = DATABASE_URl.fromEnv()
             transactionIsolation = TRANSACTION_ISOLATION
             maximumPoolSize = 3
             password = "admin"
