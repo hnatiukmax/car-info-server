@@ -5,7 +5,7 @@ import com.sectumsempra.data.network.client.carInfoService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-internal class CarInfoRepository {
+class CarInfoRepository {
 
     private val carInfoService = RestClient().carInfoService
 

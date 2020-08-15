@@ -8,4 +8,5 @@ interface CarInfoService {
 
     @GET("/nomer/{digits}")
     suspend fun getCarInfo(@Path("digits") digits: String): CarInfo
+
 }
