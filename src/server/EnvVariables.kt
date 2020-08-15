@@ -2,7 +2,7 @@ package com.sectumsempra.server
 
 internal const val DATABASE_GAI_URL = "DATABASE_GAI_URL"
 internal const val IS_TESTING_MODE = "IS_TESTING_MODE"
-internal const val DATABASE_URl = "DATABASE_URl"
+internal const val DATABASE_URL = "DATABASE_URL"
 internal const val JWT_KEY = "JWT_KEY"
 internal const val SECRET_KEY = "SECRET_KEY"
 
