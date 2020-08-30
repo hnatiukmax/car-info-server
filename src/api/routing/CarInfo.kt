@@ -4,7 +4,6 @@ import com.sectumsempra.api.API_VERSION
 import com.sectumsempra.api.asErrorResponse
 import com.sectumsempra.data.repositories.CarInfoRepository
 import io.ktor.application.call
-import io.ktor.auth.authenticate
 import io.ktor.http.HttpStatusCode
 import io.ktor.locations.KtorExperimentalLocationsAPI
 import io.ktor.locations.Location
@@ -21,14 +20,12 @@ class CarInfo(val number: String)
 @KtorExperimentalLocationsAPI
 fun Route.carInfo(carInfoRepository: CarInfoRepository) {
 
-    authenticate("jwt") {
-        get<CarInfo> {
-            try {
-                val carInfo = carInfoRepository.getCarInfo(it.number)
-                call.respond(HttpStatusCode.OK, carInfo)
-            } catch (ex: Exception) {
-                call.respond(HttpStatusCode.BadRequest, ex.localizedMessage.asErrorResponse)
-            }
+    get<CarInfo> {
+        try {
+            val carInfo = carInfoRepository.getCarInfo(it.number)
+            call.respond(HttpStatusCode.OK, carInfo)
+        } catch (ex: Exception) {
+            call.respond(HttpStatusCode.BadRequest, ex.localizedMessage.asErrorResponse)
         }
     }
 }
