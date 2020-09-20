@@ -14,3 +14,5 @@ val String.asDataResponse get() = JsonDataWrapper(this)
 suspend fun ApplicationCall.redirect(location: Any) {
     respondRedirect(application.locations.href(location))
 }
+
+internal val String.withoutWhitespace get() = this.replace("\\s".toRegex(), "")
